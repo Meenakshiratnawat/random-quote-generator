@@ -8,26 +8,26 @@ function Home() {
   const [quote, setQuote] = useState(null);
   const [selectedTag, setSelectedTag] = useState(null);
   const [tags, setTags] = useState([]);
+  const [isBookmarked, setIsBookmarked] = useState(false);
 
   useEffect(() => {
     async function fetchData() {
       const quoteData = await getRandomQuote(selectedTag);
       setQuote(quoteData);
+      setIsBookmarked(checkBookMark(quoteData._id));
     }
     fetchData();
   }, [selectedTag]);
 
-  useEffect(() => {
-    async function fetchData() {
-      const tagsData = await getTags();
-      setTags(tagsData);
+  function handleBookmarkClick(quote) {
+    if (isBookmarked) {
+      removeBookmark(quote._id);
+      setIsBookmarked(false);
+    } else {
+      addBookmark(quote);
+      setIsBookmarked(true);
     }
-    fetchData();
-  }, []);
-
-  function handleBookmarkClick (quote) {
-    addBookmark(quote);
-  };
+  }
 
   function handleTagChange(event) {
     setSelectedTag(event.target.value);
@@ -38,13 +38,12 @@ function Home() {
     getRandomQuote(selectedTag)
       .then((quoteData) => {
         setQuote(quoteData);
+        setIsBookmarked(checkBookMark(quoteData._id));
       })
       .catch((error) => {
         console.error(error);
       });
   }
-
-  
 
   function renderQuote() {
     if (!quote) {
@@ -52,7 +51,6 @@ function Home() {
     }
 
     const { content, author, _id } = quote;
-    const isBookmarked = quote!=null && checkBookMark(quote._id)
 
     return (
       <div className="quote-container">
@@ -60,12 +58,20 @@ function Home() {
           <p>{content}</p>
         </blockquote>
         <p className="author">- {author}</p>
-        <button onClick={handleBookmarkClick(quote)}>
+        <button onClick={() => handleBookmarkClick(quote)}>
           {isBookmarked ? "Remove from bookmarks" : "Bookmark"}
         </button>
       </div>
     );
   }
+
+  useEffect(() => {
+    async function fetchData() {
+      const tagsData = await getTags();
+      setTags(tagsData);
+    }
+    fetchData();
+  }, []);
 
   return (
     <div className="home">
@@ -88,3 +94,4 @@ function Home() {
 }
 
 export default Home;
+
