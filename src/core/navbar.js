@@ -5,7 +5,7 @@ function Navbar() {
   return (
     <div>
       <ul className="nav nav-tabs py-3 ">
-        <li className="nav-item  text-success ">
+        <li className="nav-item">
           <NavLink
             className="nav-link  text-light "
             activeClassName="active"
