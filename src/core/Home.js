@@ -47,7 +47,11 @@ function Home() {
 
   function renderQuote() {
     if (!quote) {
-      return <p>Loading...</p>;
+      return (
+        <div className="quote-container loading-container">
+          <p>Loading...</p>
+        </div>
+      )
     }
 
     const { content, author, _id } = quote;
@@ -58,7 +62,7 @@ function Home() {
           <p>{content}</p>
         </blockquote>
         <p className="author">- {author}</p>
-        <button onClick={() => handleBookmarkClick(quote)}>
+        <button onClick={() => handleBookmarkClick(quote)} className="bookmark-button">
           {isBookmarked ? "Remove from bookmarks" : "Bookmark"}
         </button>
       </div>
@@ -78,6 +82,7 @@ function Home() {
       <Navbar />
       <h1>Random Quote Generator</h1>
       <div className="controls">
+      <button onClick={handleGenerateQuote}>Generate another quote</button>
         <select value={selectedTag} onChange={handleTagChange}>
           <option value="">Select a tag</option>
           {tags.map((tag) => (
@@ -86,7 +91,7 @@ function Home() {
             </option>
           ))}
         </select>
-        <button onClick={handleGenerateQuote}>Generate another quote</button>
+
       </div>
       {renderQuote()}
     </div>
