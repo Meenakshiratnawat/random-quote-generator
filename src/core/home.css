@@ -74,6 +74,7 @@ blockquote {
   font-size: 24px;
   font-style: italic;
   margin-bottom: 10px;
+  text-align: center;
 }
 
 .author {
@@ -113,6 +114,24 @@ button.bookmark:hover {
   padding-bottom: 10px;
   margin-right: 20px;
 }
+
+.quote-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bookmark-button {
+  margin-top: 1rem;
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+}
+
 
 body {
   background-color: #EEEEEE;
