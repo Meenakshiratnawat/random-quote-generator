@@ -1,0 +1,98 @@
+.home {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  h1 {
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .tag-select {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: none;
+  }
+  .tag-select option {
+    font-size: 16px;
+    padding: 8px;
+    border-radius: 4px;
+    border: none;
+    background-color: #fff;
+    color: #333;
+  }
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    border: none;
+    background-color: #1abc9c;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  button:hover {
+    background-color: #16a085;
+  }
+  
+  .quote-container {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+  
+  blockquote {
+    font-size: 24px;
+    font-style: italic;
+    margin-bottom: 10px;
+  }
+  
+  .author {
+    text-align: right;
+    margin-bottom: 10px;
+  }
+  
+  button.bookmark {
+    background-color: #3498db;
+  }
+  
+  button.bookmark:hover {
+    background-color: #2980b9;
+  }
+  
+  .nav-tabs {
+    background-color: #333;
+  }
+  
+  .nav-link {
+    color: white;
+  }
+  
+  .nav-link.active {
+    background-color: #17a2b8;
+  }
+  .nav :hover {
+    border-radius: 0px;
+  }
+  .nav-item {
+    display: inline-block;
+    margin-top: 2;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-right: 20px; /* optional: add some spacing between the links */
+  }
+  
